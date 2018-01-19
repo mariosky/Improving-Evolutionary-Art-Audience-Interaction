@@ -1,448 +1,360 @@
 
-%%%%%%%%%%%%%%%%%%%%%%% file typeinst.tex %%%%%%%%%%%%%%%%%%%%%%%%%
-%
-% This is the LaTeX source for the instructions to authors using
-% the LaTeX document class 'llncs.cls' for contributions to
-% the Lecture Notes in Computer Sciences series.
-% http://www.springer.com/lncs       Springer Heidelberg 2006/05/04
-%
-% It may be used as a template for your own input - copy it
-% to a new file with a new name and use it as the basis
-% for your article.
-%
-% NB: the document class 'llncs' has its own and detailed documentation, see
-% ftp://ftp.springer.de/data/pubftp/pub/tex/latex/llncs/latex2e/llncsdoc.pdf
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% RECOMMENDED %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[graybox]{svmult}
+\usepackage[misc]{ifsym}
+\usepackage{mathptmx}       % selects Times Roman as basic font
+\usepackage{helvet}         % selects Helvetica as sans-serif font
+\usepackage{courier}        % selects Courier as typewriter font
+\usepackage{type1cm}        % activate if the above 3 fonts are
+\usepackage{multirow} 
+\usepackage{makeidx}         % allows index generation
+\usepackage{graphicx}        % standard LaTeX graphics tool
+                             % when including figure files
+\usepackage{multicol}        % used for the two-column index
+\usepackage[bottom]{footmisc}% places footnotes at page bottom
 
 
-\documentclass[runningheads,a4paper]{llncs}
+% see the list of further useful packages
+% in the Reference Guide
 
-\usepackage{amssymb}
-\setcounter{tocdepth}{3}
-\usepackage{graphicx}
+\makeindex             % used for the subject index
+                       % please use the style svind.ist with
+                       % your makeindex program
 
-\usepackage{url}
-\urldef{\mailsa}\path|{alfred.hofmann, ursula.barth, ingrid.haas, frank.holzwarth,|
-\urldef{\mailsb}\path|anna.kramer, leonie.kunz, christine.reiss, nicole.sator,|
-\urldef{\mailsc}\path|erika.siebert-cole, peter.strasser, lncs}@springer.com|    
-\newcommand{\keywords}[1]{\par\addvspace\baselineskip
-\noindent\keywordname\enspace\ignorespaces#1}
 
 \begin{document}
 
-\mainmatter  % start of an individual contribution
+\title*{Improving Evolutionary Art Audience Interaction by Means of a Kinect Based Non-intrusive Method.}
+\titlerunning{Analyzing Aud. Percept. of Elitism Opers. by Means of a Kinect B. Non-intr. Method}
 
-% first the title is needed
-\title{Lecture Notes in Computer Science:\\Authors' Instructions
-for the Preparation\\of Camera-Ready
-Contributions\\to LNCS/LNAI/LNBI Proceedings}
+\author{Francisco Fern\'andez de Vega   \and Mario Garcia-Valdez \and J.J. Merelo \and Georgina Aguilar \and Cayetano Cruz \and Patricia Hern\'andez}
+\authorrunning{Fern\'andez de Vega et al.}
 
-% a short form should be given in case it is too long for the running head
-\titlerunning{Lecture Notes in Computer Science: Authors' Instructions}
+\institute{ F. Fern\'andez de Vega (\Letter) \and  C. Cruz  \at Universidad de Extremadura \\ \email{fcofdez@unex.es} 
+\and  M. Garcia-Valdez (\Letter) \and  G. Aguilar \at Instituto Tecnol\'ogico de Tijuana \\ \email{mario@tectijuana.edu.mx}
+\and P. Hern\'andez \at University of Seville \\ \email{patriciapahr@gmail.com}
+\and J.J. Merelo \at Computer Architecture and Technology, University of Granada, Spain \\ \email{jjmerelo@gmail.com}}
 
-% the name(s) of the author(s) follow(s) next
-%
-% NB: Chinese authors should write their first names(s) in front of
-% their surnames. This ensures that the names appear correctly in
-% the running heads and the author index.
-%
-\author{Alfred Hofmann%
-\thanks{Please note that the LNCS Editorial assumes that all authors have used
-the western naming convention, with given names preceding surnames. This determines
-the structure of the names in the running heads and the author index.}%
-\and Ursula Barth\and Ingrid Haas\and Frank Holzwarth\and\\
-Anna Kramer\and Leonie Kunz\and Christine Rei\ss\and\\
-Nicole Sator\and Erika Siebert-Cole\and Peter Stra\ss er}
-%
-\authorrunning{Lecture Notes in Computer Science: Authors' Instructions}
-% (feature abused for this document to repeat the title also on left hand pages)
-
-% the affiliations are given next; don't give your e-mail address
-% unless you accept that it will be published
-\institute{Springer-Verlag, Computer Science Editorial,\\
-Tiergartenstr. 17, 69121 Heidelberg, Germany\\
-\mailsa\\
-\mailsb\\
-\mailsc\\
-\url{http://www.springer.com/lncs}}
-
-%
-% NB: a more complex sample for affiliations and the mapping to the
-% corresponding authors can be found in the file "llncs.dem"
-% (search for the string "\mainmatter" where a contribution starts).
-% "llncs.dem" accompanies the document class "llncs.cls".
-%
-
-\toctitle{Lecture Notes in Computer Science}
-\tocauthor{Authors' Instructions}
-\maketitle
+%----------------------------------------------------------------------------------------
 
 
-\begin{abstract}
-The abstract should summarize the contents of the paper and should
-contain at least 70 and at most 150 words. It should be written using the
-\emph{abstract} environment.
-\keywords{We would like to encourage you to list your keywords within
-the abstract section}
-\end{abstract}
 
+\maketitle % Insert title
+
+\abstract{This paper analyzes audience perception on Evolutionary Art produced by means of the \textit{unplugged evolutionary algorithm}. The long term goal is to study if genetic operations applied by artists in an evolutionary art work are consistently understood by the audience visiting the art exhibit.  Yet, we need to involve the audience in the experiment, so that enough data can be retrieved and compared with artists way of working.  Thus, by means of a series of experiments taken place in an art exhibit environment, we analyze audience behavior using two different approaches, the more traditional survey based approach and a new non-intrusive methodology which relies on a depth camera.  We show how the latest can largely increase the amount of data collected. Furthermore, it allows to measure both, the time spent by a given person in front of an art work, but also to collect additional features about his face, where he is looking and basic gesture recognition. These features can be used to predict their personal attitude and feelings when facing a given art work. Although we describe here preliminary results, they allow us to conclude the pertinence of the approach.
+\keywords{Evolutionary Algorithms, Art, Creativity}}
+
+%----------------------------------------------------------------------------------------
+%	ARTICLE CONTENTS
+%----------------------------------------------------------------------------------------
 
 \section{Introduction}
+Evolutionary Algorithms (EAs), as well as its interactive version, the Interactive EA (IEA), has been successfully applied to not only solve optimization problems, but also to promote creativity when producing art works \cite{takagi2001interactive}.  Thus human beings have played the role of fitness evaluators within the IEA, applying aesthetic selection when creative processes are faced.  But still new possibilities for human involvement has been proposed with the \textit{unplugged evolutionary algorithm}:  it provides new means for the user to run the algorithm in a different fashion;  main EA operations are now performed by users, including selection, crossover, mutation, evaluation, etc, while computers are in charge of more administrative tasks:  storing and managing populations \cite{de2014unplugging}.
+  
+Since its proposal, UEAs have been successfully applied to generate collective art works that have gained public attention:  the latest experiment has produced a collective art work that has been selected as one of the winners at the international \textit{Show Your World 2017} art competition \footnote{http://www.reartiste.com/juried-exhibition-show-your-world-2017/}.  But before that, other art works produced by means of the UEA were successfully shown to the public in different cities around the world: Cancun, Amsterdam, Madrid, Vancouver, etc, being one of them awarded with the ACM Gecco evolutionary art design and creativity award in 2013 \cite{loiacono2014gecco}.
 
-You are strongly encouraged to use \LaTeXe{} for the
-preparation of your camera-ready manuscript together with the
-corresponding Springer class file \verb+llncs.cls+. Only if you use
-\LaTeXe{} can hyperlinks be generated in the online version
-of your manuscript.
+Results obtained encouraged us to continue analyzing other components of the algorithm, but we also understood that not only artists but also the audience should be included in the loop, to check whether the evolutionary approach and operations artists apply are coherently interpreted by the audience.  Although an initial experiment was performed involving the audience, using a series of questions to be answered, we quickly understood that new non-intrusive approaches would be needed to properly evaluate audience experience without disturbing their participation on art exhibits.  Actually, previously applied surveys typically produced fatigue in the audience, when a large number of questions must be answered by carefully examining the art works shown.  New alternatives are required that allows to obtain information from the audience, avoiding fatigue and allowing them to more effectively enjoy the experience.
 
-The \LaTeX{} source of this instruction file for \LaTeX{} users may be
-used as a template. This is
-located in the ``authors'' subdirectory in
-\url{ftp://ftp.springer.de/pub/tex/latex/llncs/latex2e/instruct/} and
-entitled \texttt{typeinst.tex}. There is a separate package for Word 
-users. Kindly send the final and checked source
-and PDF files of your paper to the Contact Volume Editor. This is
-usually one of the organizers of the conference. You should make sure
-that the \LaTeX{} and the PDF files are identical and correct and that
-only one version of your paper is sent. It is not possible to update
-files at a later stage. Please note that we do not need the printed
-paper.
+This paper presents a proposal for attaining such a goal:  being able to extract information from the audience while they are simply looking at the artworks in the exhibit.  By using off-the-shelf human-computer interaction devices we are able to extract useful information.  Not only that, the first experiments show how a correlation may be found between the data extracted from the audience and some of the genetic operations applied by artists.  The methodology thus provides a better understanding of audience perception, and relevant information that may allow in the future to improve the UEA.
 
-We would like to draw your attention to the fact that it is not possible
-to modify a paper in any way, once it has been published. This applies
-to both the printed book and the online version of the publication.
-Every detail, including the order of the names of the authors, should
-be checked before the paper is sent to the Volume Editors.
+The rest of the paper is organized as follows: Section \ref{loop} presents the literature review. Section \ref{interaction} proposes the methodology aimed at analyzing public reaction. Section \ref{experiments} describes the experiments performed while section \ref{results} presents results.  Finally, we draw our conclusions in Section 5. % Cambiar después por ref
 
-\subsection{Checking the PDF File}
 
-Kindly assure that the Contact Volume Editor is given the name and email
-address of the contact author for your paper. The Contact Volume Editor
-uses these details to compile a list for our production department at
-SPS in India. Once the files have been worked upon, SPS sends a copy of
-the final pdf of each paper to its contact author. The contact author is
-asked to check through the final pdf to make sure that no errors have
-crept in during the transfer or preparation of the files. This should
-not be seen as an opportunity to update or copyedit the papers, which is
-not possible due to time constraints. Only errors introduced during the
-preparation of the files will be corrected.
+\section{Humans in the EA loop}
+\label{loop}
+Several decades ago, researchers noticed the interest of allowing users to interact with the EA, so that some part of the algorithms were run by users.  This way, the IEA was successfully applied to problems requiring aesthetic evaluations.  Moreover, new means to allow users acquire different roles within the EA were envisioned over the years, thus producing new versions of the EA particularly adapted to analyze creative processes developed by artists, and the Unplugged Evolutionary Algorithm (UEA) was born \cite{de2013unplugging}.
 
-This round of checking takes place about two weeks after the files have
-been sent to the Editorial by the Contact Volume Editor, i.e., roughly
-seven weeks before the start of the conference for conference
-proceedings, or seven weeks before the volume leaves the printer's, for
-post-proceedings. If SPS does not receive a reply from a particular
-contact author, within the timeframe given, then it is presumed that the
-author has found no errors in the paper. The tight publication schedule
-of LNCS does not allow SPS to send reminders or search for alternative
-email addresses on the Internet.
+The UEA is a version of the IEA that is run by artists when producing a collective art work.  Instead of using the computer to run the EA and allow users -artists- to interact, computers are removed, and the human beings are thus in charge of applying every step of the algorithm, not just evaluation, to produce results:  evaluation, selection, crossover, etc.  Somehow, the UEA provide artists with a methodology for artistic creation, while computer scientists gain access to human creativity analyzed from the point of view of EAs.
 
-In some cases, it is the Contact Volume Editor that checks all the final
-pdfs. In such cases, the authors are not involved in the checking phase.
+The basic idea behind UEAs is to allow artists to apply the EA as the methodology along the art creation process.  Therefore, all operations, including evaluation, selection, crossover, mutation, etc, are performed by human beings, artists, that simultaneously coplete a form describing the reasons behind every decision they take, and operation they apply. Thus, once the experiment has been completed, we have a bunch of information to be analyzed and contextualized under the EA perspective, that could help to better understand artists creativity.
 
-\subsection{Additional Information Required by the Volume Editor}
+Yet, in every artistic process, artists are not the only ones involved.  The work is always produced to be confronted with the public, and thus the audience response is very important for the artists behind the work. Therefore in any computer mediated art process, the reaction of the audience should be studied as carefully as the algorithm is designed.  Thus, we could summarize the main steps of the methodology provided by UEAs as follows:    (i) Unplugging the EA to be executed by artists; (ii) artists produce a collective work while applying the algorithm;  (iii) operations are then analyzed, and the creative process evaluated;  (iv) Audience perception is analyzed and compared with data collected from the previous analysis.
 
-If you have more than one surname, please make sure that the Volume Editor
-knows how you are to be listed in the author index.
+Although in previous works we conducted a number of surveys to check whether the audience properly understood what the artists did \cite{moreno2016analysing}, fatigue of the audience was seen as a drawback of the method.  Actually, the problem of fatigue had already been studied in the context of IEA \cite{frade2010evolution}.  In both cases, a long interaction with the medium produce boredom:  in the IEA the need for the user to evaluate a large number of \textit{individuals} for many generations;  in the UEA when all of the works collectively produced by the artists team -\textit{individuals}- must be analyzed by the audience to answer a series of questions about the genetic operations for every work produced and also figure out the genealogy of the whole work.  Given that 50 or 60 works were produced in previous experiments \cite{de2013unplugging}, \cite{de2014unplugging} a complete series of questions would include five to ten per work, which produce more than 500 questions.  We had instead to focus in just some of the works, thus avoiding to repeat every question 50 or 60 times.  Thus the surveys include about thirty questions.  Even in this case, the audience felt tired and bored, given that for every question a detailed analysis of the picture was required.  Unfortunately, when all of the surveys are completely filled, which is the best situation, partial information is only retrieved, given that many questions had to be removed from the ideal survey for practical reasons, as described above.
 
-\subsection{Copyright Forms}
+Therefore, an alternative is required if we want to capture as much information as possible from the audience, and simultaneously want them to enjoy the experience of visiting an art exhibit:  a different approach must be applied, so that information from the audience can be extracted without disturbing the \textit{art experience}. 
 
-The copyright form may be downloaded from the ``For Authors"
-(Information for LNCS Authors) section of the LNCS Website:
-\texttt{www.springer.com/lncs}. Please send your signed copyright form
-to the Contact Volume Editor, either as a scanned pdf or by fax or by
-courier. One author may sign on behalf of all of the other authors of a
-particular paper. Digital signatures are acceptable.
+%Therefore, an alternative is required to analyse by means of any kind of sensors audience perception.
+We can find in the literature interactive installations where sensors has been already used \cite{tieben2014playful}.  For instance, sensor based interactive installations were set up as a learning auxiliary tool for children with autism \cite{boutsika2014kinect}; similarly, remote operation of machinery and drone robot controls have been implemented using the same kind of sensors \cite{berra2013interfaz}. Examples can be also found in medical applications, such as those related to rehabilitation of patients of Parkinson's disease \cite{pompeu2015effect},  sport related injuries \cite{berra2013interfaz} and burn rehabilitation \cite{parry2014keeping}, all of them using sensors to analyse patients behavior.  We can thus conclude that the flexibility of this kind of devices could be also useful for the goal we pursue.
 
-\section{Paper Preparation}
+We thus propose in the third step of our methodology to use a non-intrusive human computer interaction system, which should be capable of obtaining similar information than that acquired before by means of surveys.  Although this goal may be ambitious, we present below our preliminary work towards that goal, which allows us to be optimistic with the idea.  
 
-Springer provides you with a complete integrated \LaTeX{} document class
-(\texttt{llncs.cls}) for multi-author books such as those in the LNCS
-series. Papers not complying with the LNCS style will be reformatted.
-This can lead to an increase in the overall number of pages. We would
-therefore urge you not to squash your paper.
+%In the following sections, we will show how the experiment was design, the technologies employed and the data we obtained from the audience.
 
-Please always cancel any superfluous definitions that are
-not actually used in your text. If you do not, these may conflict with
-the definitions of the macro package, causing changes in the structure
-of the text and leading to numerous mistakes in the proofs.
+%to confront data obtained from the audience in previous experiments by means of surveys, from those that may be directly grab with non-intrusive methods.
 
-If you wonder what \LaTeX{} is and where it can be obtained, see the
-``\textit{LaTeX project site}'' (\url{http://www.latex-project.org})
-and especially the webpage ``\textit{How to get it}''
-(\url{http://www.latex-project.org/ftp.html}) respectively.
+%Of particular interest in this work is the elitism operator.  It allows most selected work to survive, so that artists can use it again as a source of inspiration.
 
-When you use \LaTeX\ together with our document class file,
-\texttt{llncs.cls},
-your text is typeset automatically in Computer Modern Roman (CM) fonts.
-Please do
-\emph{not} change the preset fonts. If you have to use fonts other
-than the preset fonts, kindly submit these with your files.
+%In the experiments described below, six artists were included in the team.  Usually, the experiment begins with artists selecting well known master pieces for the initial population.
 
-Please use the commands \verb+\label+ and \verb+\ref+ for
-cross-references and the commands \verb+\bibitem+ and \verb+\cite+ for
-references to the bibliography, to enable us to create hyperlinks at
-these places.
-
-For preparing your figures electronically and integrating them into
-your source file we recommend using the standard \LaTeX{} \verb+graphics+ or
-\verb+graphicx+ package. These provide the \verb+\includegraphics+ command.
-In general, please refrain from using the \verb+\special+ command.
-
-Remember to submit any further style files and
-fonts you have used together with your source files.
-
-\subsubsection{Headings.}
-
-Headings should be capitalized
-(i.e., nouns, verbs, and all other words
-except articles, prepositions, and conjunctions should be set with an
-initial capital) and should,
-with the exception of the title, be aligned to the left.
-Words joined by a hyphen are subject to a special rule. If the first
-word can stand alone, the second word should be capitalized.
-
-Here are some examples of headings: ``Criteria to Disprove
-Context-Freeness of Collage Language", ``On Correcting the Intrusion of
-Tracing Non-deterministic Programs by Software", ``A User-Friendly and
-Extendable Data Distribution System", ``Multi-flip Networks:
-Parallelizing GenSAT", ``Self-determinations of Man".
-
-\subsubsection{Lemmas, Propositions, and Theorems.}
-
-The numbers accorded to lemmas, propositions, and theorems, etc. should
-appear in consecutive order, starting with Lemma 1, and not, for
-example, with Lemma 11.
-
-\subsection{Figures}
-
-For \LaTeX\ users, we recommend using the \emph{graphics} or \emph{graphicx}
-package and the \verb+\includegraphics+ command.
-
-Please check that the lines in line drawings are not
-interrupted and are of a constant width. Grids and details within the
-figures must be clearly legible and may not be written one on top of
-the other. Line drawings should have a resolution of at least 800 dpi
-(preferably 1200 dpi). The lettering in figures should have a height of
-2~mm (10-point type). Figures should be numbered and should have a
-caption which should always be positioned \emph{under} the figures, in
-contrast to the caption belonging to a table, which should always appear
-\emph{above} the table; this is simply achieved as matter of sequence in
-your source.
-
-Please center the figures or your tabular material by using the \verb+\centering+
-declaration. Short captions are centered by default between the margins
-and typeset in 9-point type (Fig.~\ref{fig:example} shows an example).
-The distance between text and figure is preset to be about 8~mm, the
-distance between figure and caption about 6~mm.
-
-To ensure that the reproduction of your illustrations is of a reasonable
-quality, we advise against the use of shading. The contrast should be as
-pronounced as possible.
-
-If screenshots are necessary, please make sure that you are happy with
-the print quality before you send the files.
-\begin{figure}
-\centering
-\includegraphics[height=6.2cm]{eijkel2}
-\caption{One kernel at $x_s$ (\emph{dotted kernel}) or two kernels at
-$x_i$ and $x_j$ (\textit{left and right}) lead to the same summed estimate
-at $x_s$. This shows a figure consisting of different types of
-lines. Elements of the figure described in the caption should be set in
-italics, in parentheses, as shown in this sample caption.}
-\label{fig:example}
+\begin{figure}[t]
+%\sidecaption
+\centering 
+\includegraphics[width=8cm]{img/components.eps}
+\caption{ Components of the non-intrusive human-computer interaction system.}
+\label{fig:components}       % Give a unique label
 \end{figure}
 
-Please define figures (and tables) as floating objects. Please avoid
-using optional location parameters like ``\verb+[h]+" for ``here".
+\section{Non-intrusive human-computer interaction system}
+\label{interaction}
+In order to measure the amount of engagement users have with each painting,
+% maybe is not engagement. The amount of response? - Mario  
+a natural user interface device is used for facial tracking. In this project in particular the \textit{ Kinect sensor Version 2.0 for Xbox One} was chosen, but other similar sensors could be used; for instance the \textit{RealSense D400} to be available at the beginning of 2018. The Kinect sensor, uses an infrared camera and is capable of measuring depth even in dim light. The software developer kit offers libraries for face and whole body tracking but a disadvantage of the solution is that it has proprietary software. At the time of writing the unit has been discontinued and is no longer been manufactured\cite{kinectOut}. Yet, other alternatives are available from different manufacturers, so that the experiments described below could be reproduced using a different sensor.
 
-\paragraph{Remark 1.}
+The sensor we use can track up to 6 persons at once, and for each face it provides a basic set of information: where the face is, where it is looking, basic expressive information (if the person is smiling), if the face has glasses, and if the eyes are open.  With this information the total amount of interaction can be measured and correlated with engagement. User engagement in this case is defined as the amount of time users spend staring at a painting. This is a simplification, because user engagement in general is a deeper behavior, that occurs when a person is fully concentrated or absorbed in the action that he or she is doing. 
 
-In the printed volumes, illustrations are generally black and white
-(halftones), and only in exceptional cases, and if the author is
-prepared to cover the extra cost for color reproduction, are colored
-pictures accepted. Colored pictures are welcome in the electronic
-version free of charge. If you send colored figures that are to be
-printed in black and white, please make sure that they really are
-legible in black and white. Some colors as well as the contrast of
-converted colors show up very poorly when printed in black and white.
+%ESTO LO LLEVO AL FINAL DE LA SECCION PREVIA
+%The sensor has been used in several interactive installations  \cite{tieben2014playful}, as a learning auxiliary tool for children with autism \cite{boutsika2014kinect}, remote operation of machinery and drone robot control \cite{berra2013interfaz}. In medical applications has been used in the rehabilitation of patients of Parkinson's disease \cite{pompeu2015effect},  sport related injuries \cite{berra2013interfaz} and burn rehabilitation \cite{parry2014keeping}.
 
-\subsection{Formulas}
+The hardware components of the installation are presented in Fig.~\ref{fig:components}. For each painting or display presenting a group of images there is a sensor station installed.  Each station consists of a compact computer, needed to run the Kinect application, and a Kinect sensor on the top or bottom of the display. For displaying the art a monitor or LCD projector appropriate to the size of the venue or a physical canvas is installed together with the station. Another computer is needed to act as the server, collecting information from all the stations and serving the image files to be presented in each station. A detailed description of each component is presented next.
 
-Displayed equations or formulas are centered and set on a separate
-line (with an extra line or halfline space above and below). Displayed
-expressions should be numbered for reference. The numbers should be
-consecutive within each section or within the contribution,
-with numbers enclosed in parentheses and set on the right margin --
-which is the default if you use the \emph{equation} environment, e.g.,
-\begin{equation}
-  \psi (u) = \int_{o}^{T} \left[\frac{1}{2}
-  \left(\Lambda_{o}^{-1} u,u\right) + N^{\ast} (-u)\right] dt \;  .
-\end{equation}
+\begin{figure}[b]
+%\sidecaption
+\centering 
+\includegraphics[width=10cm]{img/face.pdf}
 
-Equations should be punctuated in the same way as ordinary
-text but with a small space before the end punctuation mark.
+\caption{ Event Frame data, showing face boxes and expressive information for three subjects. Not that in the image captured by the web camera, the positions of the subjects is inverted.}
+\label{fig:face}       % Give a unique label
+\end{figure}
 
-\subsection{Footnotes}
+\subsection{Kinect Client Application}
+\label{kinect}
+When installing a station, the Kinect application has to be configured simply by setting the Kinect manufacture identifier and the server IP. The Kinect ID will identify all readings sent from the current station, this is important because there could be many sensors reading and sending at the same time. The sensor was set to work at a frame rate of one second, firing a Frame Event only if a face was recognized in that frame. For each Frame Event there could be up to six Face Frames. For each Face Frame the client application sends a \texttt{FrameEvent} object to the server with the following attributes:
 
-The superscript numeral used to refer to a footnote appears in the text
-either directly after the word to be discussed or -- in relation to a
-phrase or a sentence -- following the punctuation sign (comma,
-semicolon, or period). Footnotes should appear at the bottom of
-the
-normal text area, with a line of about 2~cm set
-immediately above them.\footnote{The footnote numeral is set flush left
-and the text follows with the usual word spacing.}
+\begin{description}
+    \item[\texttt{frame\_id}:] This is the frame identifier, several Frame Events could have the same frame\_id because there will be a frame event for each face detected.
+    \item[\texttt{kinect\_id}:] As said before, this is the identifier of the station.
+    \item[\texttt{date\_time}:] This is a time stamp of the event, this is an important data because it will tie the currently displayed image with the event.
+    \item[\texttt{happy}:] This is information is included in the API's \texttt{FreameEvent}, it could have the values: \texttt{yes}, \texttt{no} and \texttt{unknown}.
+    \item[engaged:] This attribute indicated if the face is looking at the screen. It has one of the values:\texttt{yes}, \texttt{no} and \texttt{unknown}..
 
-\subsection{Program Code}
+    \item[\texttt{looking\_away}:] Indicates if the user is looking to away from the screen.
+    \item[\texttt{face\_index}:] This attribute indicates the index of the Recognized Face is a value from 0 to 5. Once a face is tracked is assigned a value and is kept until losing track. If the same person is out of frame for a few seconds a new face\_id could be generated.
+    \item[\texttt{face\_box}:] Screen coordinates of a box drawn for the face. See Figure~\ref{fig:face}.
+\end{description}
 
-Program listings or program commands in the text are normally set in
-typewriter font, e.g., CMTT10 or Courier.
+\begin{figure}[b]
+%\sidecaption
+\centering 
+\includegraphics[width=10cm]{img/dash.pdf}
 
-\medskip
+\caption{ Web-based dashboard application showing readings from a remote station.}
+\label{fig:dashboard}       % Give a unique label
+\end{figure}
 
-\noindent
-{\it Example of a Computer Program}
-\begin{verbatim}
-program Inflation (Output)
-  {Assuming annual inflation rates of 7%, 8%, and 10%,...
-   years};
-   const
-     MaxYears = 10;
-   var
-     Year: 0..MaxYears;
-     Factor1, Factor2, Factor3: Real;
-   begin
-     Year := 0;
-     Factor1 := 1.0; Factor2 := 1.0; Factor3 := 1.0;
-     WriteLn('Year  7% 8% 10%'); WriteLn;
-     repeat
-       Year := Year + 1;
-       Factor1 := Factor1 * 1.07;
-       Factor2 := Factor2 * 1.08;
-       Factor3 := Factor3 * 1.10;
-       WriteLn(Year:5,Factor1:7:3,Factor2:7:3,Factor3:7:3)
-     until Year = MaxYears
-end.
-\end{verbatim}
-%
-\noindent
-{\small (Example from Jensen K., Wirth N. (1991) Pascal user manual and
-report. Springer, New York)}
+\subsection{Data Server}
+Data returned by the stations are stored by the node.js server in a central database, in these experiments both the redis in-memory key-value store and MySQL database system were used. In order to synchronize the reading with the media being displayed at the station, an additional time stamp is added by the server at the time of insertion.
 
-\subsection{Citations}
-
-For citations in the text please use
-square brackets and consecutive numbers: \cite{jour}, \cite{lncschap},
-\cite{proceeding1} -- provided automatically
-by \LaTeX 's \verb|\cite| \dots\verb|\bibitem| mechanism.
-
-\subsection{Page Numbering and Running Heads}
-
-There is no need to include page numbers. If your paper title is too
-long to serve as a running head, it will be shortened. Your suggestion
-as to how to shorten it would be most welcome.
-
-\section{LNCS Online}
-
-The online version of the volume will be available in LNCS Online.
-Members of institutes subscribing to the Lecture Notes in Computer
-Science series have access to all the pdfs of all the online
-publications. Non-subscribers can only read as far as the abstracts. If
-they try to go beyond this point, they are automatically asked, whether
-they would like to order the pdf, and are given instructions as to how
-to do so.
-
-Please note that, if your email address is given in your paper,
-it will also be included in the meta data of the online version.
-
-\section{BibTeX Entries}
-
-The correct BibTeX entries for the Lecture Notes in Computer Science
-volumes can be found at the following Website shortly after the
-publication of the book:
-\url{http://www.informatik.uni-trier.de/~ley/db/journals/lncs.html}
-
-\subsubsection*{Acknowledgments.} The heading should be treated as a
-subsubsection heading and should not be assigned a number.
-
-\section{The References Section}\label{references}
-
-In order to permit cross referencing within LNCS-Online, and eventually
-between different publishers and their online databases, LNCS will,
-from now on, be standardizing the format of the references. This new
-feature will increase the visibility of publications and facilitate
-academic research considerably. Please base your references on the
-examples below. References that don't adhere to this style will be
-reformatted by Springer. You should therefore check your references
-thoroughly when you receive the final pdf of your paper.
-The reference section must be complete. You may not omit references.
-Instructions as to where to find a fuller version of the references are
-not permissible.
-
-We only accept references written using the latin alphabet. If the title
-of the book you are referring to is in Russian or Chinese, then please write
-(in Russian) or (in Chinese) at the end of the transcript or translation
-of the title.
-
-The following section shows a sample reference list with entries for
-journal articles \cite{jour}, an LNCS chapter \cite{lncschap}, a book
-\cite{book}, proceedings without editors \cite{proceeding1} and
-\cite{proceeding2}, as well as a URL \cite{url}.
-Please note that proceedings published in LNCS are not cited with their
-full titles, but with their acronyms!
-
-\begin{thebibliography}{4}
-
-\bibitem{jour} Smith, T.F., Waterman, M.S.: Identification of Common Molecular
-Subsequences. J. Mol. Biol. 147, 195--197 (1981)
-
-\bibitem{lncschap} May, P., Ehrlich, H.C., Steinke, T.: ZIB Structure Prediction Pipeline:
-Composing a Complex Biological Workflow through Web Services. In: Nagel,
-W.E., Walter, W.V., Lehner, W. (eds.) Euro-Par 2006. LNCS, vol. 4128,
-pp. 1148--1158. Springer, Heidelberg (2006)
-
-\bibitem{book} Foster, I., Kesselman, C.: The Grid: Blueprint for a New Computing
-Infrastructure. Morgan Kaufmann, San Francisco (1999)
-
-\bibitem{proceeding1} Czajkowski, K., Fitzgerald, S., Foster, I., Kesselman, C.: Grid
-Information Services for Distributed Resource Sharing. In: 10th IEEE
-International Symposium on High Performance Distributed Computing, pp.
-181--184. IEEE Press, New York (2001)
-
-\bibitem{proceeding2} Foster, I., Kesselman, C., Nick, J., Tuecke, S.: The Physiology of the
-Grid: an Open Grid Services Architecture for Distributed Systems
-Integration. Technical report, Global Grid Forum (2002)
-
-\bibitem{url} National Center for Biotechnology Information, \url{http://www.ncbi.nlm.nih.gov}
-
-\end{thebibliography}
+\subsection{Web Client Application} 
+In each station, a JavaScript client application is constantly polling the server requesting a file to be displayed. The request includes the Kinect identifier of the station, if there is a new image available the new image is displayed. The Web application, can display images or videos, play audio, or run scripts written in the Processing language.  There is also a dashboard type application for the system administrator. In that application, the current activity of the system is displayed. There is a screen displaying almost in real-time, face-boxes and other Face Frame information from each station. The graphical user interface is presented in Figure~\ref{fig:dashboard}.
+%%% Agregado - Mario
+On the left side there is an area where the information about the last frames is presented. Each box represents the coordinates of a face as reported by the Kinect sensor, in this case a there are a few overlapped boxes indicating the slight movement of the user. All this information can also be used later to analyze the behavior of users in front of a painting over time. On the right, again the information about the last frames is presented, but indicating the facial expressions.
+%%%% 
 
 
-\section*{Appendix: Springer-Author Discount}
-
-LNCS authors are entitled to a 33.3\% discount off all Springer
-publications. Before placing an order, the author should send an email, 
-giving full details of his or her Springer publication,
-to \url{orders-HD-individuals@springer.com} to obtain a so-called token. This token is a
-number, which must be entered when placing an order via the Internet, in
-order to obtain the discount.
-
-\section{Checklist of Items to be Sent to Volume Editors}
-Here is a checklist of everything the volume editor requires from you:
+\subsection{Web Server}
+The web server is responsible for coordinating all the stations. A REST API is implemented to deliver media to each station, and also to receive frame events. The server communicates with the back-end databases and file system. Databases contain the Event Frame records and in the file system, images and videos are stored.
 
 
-\begin{itemize}
-\settowidth{\leftmargin}{{\Large$\square$}}\advance\leftmargin\labelsep
-\itemsep8pt\relax
-\renewcommand\labelitemi{{\lower1.5pt\hbox{\Large$\square$}}}
+\subsection{Post Processing}
+Post processing is required to join Frame Event information with the corresponding media presented in the station at the same time. Data is aggregated at different granularities and stored in a MySQL database. With this data, further analysis can be conducted or a fitness estimation could be calculated for each media.     
 
-\item The final \LaTeX{} source files
-\item A final PDF file
-\item A copyright form, signed by one author on behalf of all of the
-authors of the paper.
-\item A readme giving the name and email address of the
-corresponding author.
-\end{itemize}
+
+\section{Experiments}
+\label{experiments}
+The idea behind the methodology is to confirm that non-intrusive methods for analyzing audience perception can obtain useful information, comparable to those extracted with previous approaches based on surveys, but now avoiding the user fatigue produced by those surveys.
+
+Therefore, we present below a series of experiments aiming at comparing behavior of the audience when surveys are provided, and also when non-intrusive methods are applied.  
+%the idea is to conduct a number of experiments that can be compared to results already available for audience perception on the XYZ experiment developed under the UEA methodology \footnote{http://xyz-project.herokuapp.com}.
+
+We will first present a summary of each of the methods, and then will proceed by comparing results obtained with the first one, and published in \cite{moreno2016analysing}, with those that we may obtain using the second one. 
+
+\subsection{Analyzing audience perception by means of surveys}
+
+As already described, a systematic analysis of the audience comments on the results shown are very useful to see if creative processes developed by artists are properly understood by the viewer.  Thus, the first approach for such an analysis was based on surveys conducted among the audience.
+
+We planned a number of art exhibits, and surveys were designed to be collected with useful information for analyzing audience perception.  %Unfortunately, as we will show below in the Results section, surveys had to be elaborated again and even in this case the success was not properly attained.  
+Two cities from Spain (Merida and Jerez de la Frontera) an another one from Argentina (Palermo) were selected for the experiments.
+
+
+\subsection{Capturing data from audience by means of non-intrusive methods}
+Alternatively, a different setting was designed to test the non-intrusive methodology described before.
+%% 1.- Confirmar como se mostraron los pares de imágenes (cuáles en cada par). 
+%% BEGIN Nuevo - Mario
+As an experiment, four paintings were exposed in pairs, each pair for one day. Two stations were deployed on the campus of the Tijuana Institute of Technology, in a busy hallway next to the cafeteria, displaying one painting each. The number of students on each day was similar as there was no special event or activity that could increase traffic. Two days before the first experiment a dummy experiment was conducted in order to eliminate the extra attention generated by the new stations in the hallway.
+%% END  Nuevo - Mario
+On each station a high resolution web camera was also installed, to record the interaction for validation purposes. The four paintings (two pairs) selected for the experiments are: The Kiss by Gustav Klimt (1908) Fig.~\ref{fig:kiss} and Ophelia by John Everett Millais (1852) Fig.~\ref{fig:ophelia} for the first pair to be shown, and The Birth of Venus by Sandro Botticelli (1486) Fig.~\ref{fig:venus} and Impossible Love by Marc Brunet (2006-2016) Fig.~\ref{fig:impossible} as the second pair.
+
+\begin{figure}[t]
+\centering 
+\includegraphics[width=6cm]{img/klimt-der-kuss-1908.jpg}
+\caption{ The Kiss by Gustav Klimt (1908)}
+\label{fig:kiss}       % Give a unique label
+\end{figure}
+
+\begin{figure}[t]
+\centering 
+\includegraphics[width=8cm]{img/Ophelia.jpg}
+\caption{ Ophelia by John Everett Millais (1852)}
+\label{fig:ophelia}       % Give a unique label
+\end{figure}
+
+\begin{figure}[t]
+\centering 
+\includegraphics[width=8cm]{img/Venus.jpg}
+\caption{ The Birth of Venus by Sandro Botticelli (1486)}
+\label{fig:venus}       % Give a unique label
+\end{figure}
+
+\begin{figure}[t]
+\centering 
+\includegraphics[width=8cm]{img/amorimposible.jpg}
+\caption{ Impossible Love by Marc Brunet ()}
+\label{fig:impossible}       % Give a unique label
+\end{figure}
+%VER CUALES DE LOS ANTERIORES ELEMENTOS PUEDEN COMPARARSE CON LOS DATOS DE LA KINECT.
+
+The idea is the to analyze the interaction of users for each of the pairs shown.
+
+\section{Results}
+\label{results}
+This section presents and compare results obtained with both methods previously described:  (i) survey based approaches;  (ii) non-intrusive methods for audience analysis.
+
+\subsection{Analyzing audience perception by means of surveys}
+
+As described above, three art exhibits were organized with collective works XY and XYZ, and  50 surveys were finally collected, which included questions about relationships among parents-children, elitism, figurativeness, feelings translated (love, fragility, mystery, etc), initial population, etc.  Although surveys allow to ask anything required, the process of collecting surveys, as we show below, was not easy:  more than one thousand people visited the art exhibits but only 50 surveys were correctly filled.
+
+The first art exhibit where surveys were distributed among the audience took place in Jerez de la Frontera, a mid-size southern spanish city. Art students attended the exhibition and were asked to collaborate (see figure \ref{fig:survey}).  Unfortunately, as described in \cite{moreno2016analysing} "The result of the analysis could not be performed
+because there were incomplete surveys. The reason was that
+students didn't understood properly some of the questions
+posed. Another reason is the fatigue due to the number of
+questions included".  Thus, this first failed attempt to use surveys as the main source of information led us to re-elaborate the surveys again, and a new questionnaire was formulated,
+with smaller number of questions more clearly specified.
+
+\begin{figure}[t]
+\centering 
+\includegraphics[width=10cm]{img/survey.jpg}
+\caption{Students completing the XY survey}
+\label{fig:survey}       % Give a unique label
+\end{figure}
+
+Therefore, a second attempt to collect information from the audience took place in Palermo, Argentina, during the 10th
+Ibero-American Design Meeting 2015, at the University of
+Palermo. All viewers were professional designers.  Yet, few people from the audience completed the survey (just 8 surveys completed). Again, the problem was that the audience typically attended an art exhibit to enjoy, and usually refuse surveys because they disturb the otherwise rewarding experience.
+
+Finally, we also showed the work to Industrial Design
+Engineering and Product Development students, at the
+University of Extremadura, Spain (42 surveys).  They were our own students, and this was the reason for the success:  completing the survey was a compulsory assignment for the subject.  Therefore, only when completing the survey was a compulsory activity for a subject we were able to collect enough information.
+
+Although interesting information was obtained, which finally allowed an analysis of some of the operations applied by artists (see \cite{moreno2016analysing}), our main goal was not achieved, as summarized in table \ref{tab:surveys}.  The main conclusion is that audience refuse to complete surveys when attending art exhibits, so a different mechanism is required to collect useful information for analyzing public's reaction to the artwork on display.
+
+\begin{table}[ht]
+
+\centering
+\begin{tabular*}{0.80\textwidth}{@{\extracolsep{\fill}} |l|l|l|l| }
+\hline
+Type & City & Surveys collected & Audience \\ \hline
+Elective   & Jerez (Spain) & 0 & hundreds \\ \hline
+Elective & Palermo (Argentina) & 8  & hundreds\\ \hline
+Mandatory & Merida (Spain) & 42 & 42 \\ \hline
+\end{tabular*}
+\caption{Surveys collected.} 
+\label{tab:surveys}
+\end{table} 
+
+
+%We describe below how the new non-intrusive methodology, allowed to collect information, without disturbing the exhibit experience.
+
+%As described in \cite{} surveys were conducted among the audience attending art exhibits organized in Cancun, Vancouver, Buenos Aires and Merida.  Yet, the first surveys were discarded:  the number of questions and time required to answer them, were so large that hardly ever the survey was completed.  The fatigue experienced by the users prevented them from completing the surveys.
+
+%Although the experience allowed to improve the surveys, and we were thus able to collect 50 completed ones in the latest art exhibits, the fatigue problem has always been present, and has been the main reason for the attempt described below.
+
+%In any case, the surveys allowed us to confirm some issues \cite{}:
+
+%\begin{itemize}
+%\item{Elitism is properly understood:  Usually most selected work from a given generation is the same for artists and audience}
+%\item{Both audience and artists prefer figurativism}
+%\end{itemize}
+ 
+  Although we have obtained further information regarding how feelings are understood, or mechanism for building the initial generation, we will focus on those shown above for the experiments involving survey-free non-intrusive methods.
+
+\begin{table}[ht]
+\centering
+\begin{tabular*}{0.80\textwidth}{@{\extracolsep{\fill}} |l|l|r|r|r|r|r| }
+\hline
+Painting & Expression & yes & no & maybe & unknown & total \\ \hline
+\multirow{2}{*}{The Kiss} & happy   & 107 & 266 & 188 & 211 & \multirow{2}{*}{772} \\
+                          & engaged & 183 & 466 & 123 & 0   & \\ \hline
+\multirow{2}{*}{Ophelia} & happy & 179 & 488 & 294 & 348 & \multirow{2}{*}{1269} \\
+ & engaged & 332 & 681 & 256 & 0 &\\ \hline
+\multirow{2}{*}{The Birth of Venus} & happy & 188 & 907 & 313 & 1759  & \multirow{2}{*}{3167} \\
+ & engaged & 374 & 2545 & 248 & 0 &\\ \hline
+\multirow{2}{*}{Impossible Love} & happy & 337 & 1218 & 446 & 3260 & \multirow{2}{*}{5261} \\
+ & engaged & 405 & 4474 & 382 & 0 &\\ \hline
+\end{tabular*}
+\caption{Readings from each station.} 
+\label{tab:readings}
+\end{table} 
+
+\subsection{Capturing data from audience by means of non-intrusive methods}
+In Table \ref{tab:readings}, the total number of frames captured by each sensor is presented for each painting. As mentioned in section \ref{kinect} only those frames with at least one face recognized by the sensor are recorded at a frame rate of two seconds. Each record has the following attributes: painting, happy, engaged. Both \textit{happy} and \textit{engaged} attributes can have one of the following values: \textit{yes}, \textit{no}, \textit{maybe} or \textit{unknown}.  In the table, the column named \textit{total} has the total number of frames captured for each painting. In each row, a breakdown for each of the expressions is presented. For instance, The Kiss had a total of 772 records or frames with faces in them. If we consider the \textit{happy} attribute, out of those 772 records 107 had \textit{yes}, 266 \textit{no}, 188  \textit{maybe} and 211 \textit{unknown}. Even regardless of the expression, the total number of records indicate persons facing the painting, but not necessarily looking directly at it or smiling. The table is ordered by the total number of records, we can see that the paintings of the first day The Kiss and Ophelia had considerably less attention than those of the second day. Again, the traffic on the hallway was the same on both days and they where presented the same amount of time. More people stared at The Impossible Love painting with 5261 records but only a small number of people stared directly at it.  Summarizing, even when the exhibit was located in an open area and the audience was not directly interested in visiting an art exhibit, the methodology has shown how a larger amount of data can be captured.
+
+Yet, we were not only interested in the amount of data, but also in whether data obtained could be trusted.  Therefore an additional survey based experiment was designed so that we can establish a correlation between data obtained by means of surveys and those extracted by sensors.
+
+Therefore, a \textit{Likert} survey was designed and answered by 102 students in an additional experiment at the same university. A small gallery with the previous paintings was presented to students, after receiving a brief introduction to genetic algorithms they were asked to assign fitness values to each painting according to their tastes. The five options where: Like very much, Like, Neutral, Dislike, Dislike very much. These answers can be seen also as a five star rating system, from one to five stars. The result of the survey is shown in Table \ref{tab:survey}.
+
+\begin{table}[ht]
+\centering
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} |l|l|r|r|r|r|r| }
+\hline
+Painting & NA & like much & like  & Neutral & Dislike  &  Dislike much \\ \hline
+The Kiss & 0 & 18 & 41  & 29 & 14  & 0 \\ \hline
+Ophelia  & 1 & 23 & 47  & 19 & 11  & 1 \\ \hline
+The Birth of Venus & 0 & 32 & 41  & 24 & 5  & 0 \\ \hline
+Impossible Love & 0 & 55 & 23  & 17 & 4  & 3 \\ \hline
+
+\end{tabular*}
+\caption{Survey results.} 
+\label{tab:survey}
+\end{table} 
+
+As we may notice, Ophelia was preferred from the first pair of paintings over the Kiss, while Impossible love was the preferred one from the second pair of paintings.  We can compare these results with those shown in table \ref{tab:readings}:  Ophelia and Impossible love were both the works displaying higher values of happiness and engagement for each of the pairs shown.  
+
+We can thus conclude, that the results show that sensor-based non-intrusive methods allows to capture useful information when analyzing audience perception:  the audience is not disturbed, the amount of data increases significantly, and data obtained allows to understand audience perception.
+
+\section{Conclusions}
+%\input{Conclusions}
+
+This paper describes a new non-intrusive approach to the analysis of audience perception when attending art exhibits.
+
+Althouhg survey-based methods were used in previous works to extract useful information from the audience, a detailed analysis of the participation rates described in this paper allows us to see that the audience generally rejects surveys, and simply prefers to enjoy the art exhibits.  A very low paticipation rate (50 over 1000) documented made us consider alternatives.
+
+Thus a new sensor based alternative has been developed that allows to capture audience perception avoiding public nuisance with polls.  
+
+A couple of experiments has allowed us to capture several thousand interaction data, with useful information about the interest, engagement and feelings.  Moreover, data has been confronted with another survey based experiment, and the correlation between sensor based information and answer provided by users is direct.
+
+Therfore, we believe that these encouraging results allows us to see the interest of the approach, and will allow to design new art exhibitions that provide a massive capture and analysis of the public's reaction.
+
+\section*{Acknowledgements}
+\sloppypar  The authors would like to thank Spanish Ministry of Economy,
+Industry and Competitiveness and European Regional
+Development Fund (FEDER) under projects TIN2014-56494-
+C4-4-P (Ephemec) and TIN2017-85727-C4-4-P (DeepBio);
+Junta de Extremadura FEDER, projects GR15068, GRU10029 and IB16035
+Regional Government of Extremadura, Consejer\'ia of Economy
+and Infrastructure, FEDER.
+
+
+
+%----------------------------------------------------------------------------------------
+%	REFERENCE LIST
+%----------------------------------------------------------------------------------------
+\bibliographystyle{spmpsci}
+\bibliography{neo}
+
+
+%----------------------------------------------------------------------------------------
+
 \end{document}
+
