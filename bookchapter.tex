@@ -1,5 +1,3 @@
-
-
 % RECOMMENDED %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \documentclass[graybox]{svmult}
 \usepackage[misc]{ifsym}
@@ -54,9 +52,9 @@ Evolutionary Algorithms (EAs), as well as its interactive version, the Interacti
   
 Since its proposal, UEAs have been successfully applied to generate collective art works that have gained public attention:  the latest experiment has produced a collective art work that has been selected as one of the winners at the international \textit{Show Your World 2017} art competition \footnote{http://www.reartiste.com/juried-exhibition-show-your-world-2017/}.  But before that, other art works produced by means of the UEA were successfully shown to the public in different cities around the world: Cancun, Amsterdam, Madrid, Vancouver, etc, being one of them awarded with the ACM Gecco evolutionary art design and creativity award in 2013 \cite{loiacono2014gecco}.
 
-Results obtained encouraged us to continue analyzing other components of the algorithm, but we also understood that not only artists but also the audience should be included in the loop, to check whether the evolutionary approach and operations artists apply are coherently interpreted by the audience.  Although an initial experiment was performed involving the audience, using a series of questions to be answered, we quickly understood that new non-intrusive approaches would be needed to properly evaluate audience experience without disturbing their participation on art exhibits.  Actually, previously applied surveys typically produced fatigue in the audience, when a large number of questions must be answered by carefully examining the art works shown.  New alternatives are required that allows to obtain information from the audience, avoiding fatigue and allowing them to more effectively enjoy the experience.
+Results obtained encouraged us to continue analyzing other components of the algorithm, but we also understood that not only artists but also the audience should be included in the loop, to check whether the evolutionary approach and operations artists apply are coherently interpreted by the audience.  Although an initial experiment was performed involving the audience, using a series of questions to be answered, we quickly understood, as described below, that new non-intrusive approaches would be needed to properly evaluate audience experience without disturbing their participation on art exhibits.  Actually, previously applied surveys typically produced fatigue in the audience, when a large number of questions must be answered by carefully examining the art works shown.  New alternatives are required that allows to obtain information from the audience, avoiding fatigue and allowing them to more effectively enjoy the experience.
 
-This paper presents a proposal for attaining such a goal:  being able to extract information from the audience while they are simply looking at the artworks in the exhibit.  By using off-the-shelf human-computer interaction devices we are able to extract useful information.  Not only that, the first experiments show how a correlation may be found between the data extracted from the audience and some of the genetic operations applied by artists.  The methodology thus provides a better understanding of audience perception, and relevant information that may allow in the future to improve the UEA.
+This paper presents a proposal for attaining such a goal:  being able to extract information from the audience while they are simply looking at the artworks in the exhibit.  By using off-the-shelf human-computer interaction devices we are able to extract useful information.  Not only that, the first experiments show how a correlation may be found between the data extracted from the audience and some of the genetic operations applied by artists.  The methodology thus provides a better understanding of audience perception, and relevant information that may allow in the future to improve the UEA.  In addition, the data extracted allows a first comparison between audience perception and artists' operations, which is helpful for improving the understanding of creativity.
 
 The rest of the paper is organized as follows: Section \ref{loop} presents the literature review. Section \ref{interaction} proposes the methodology aimed at analyzing public reaction. Section \ref{experiments} describes the experiments performed while section \ref{results} presents results.  Finally, we draw our conclusions in Section 5. % Cambiar después por ref
 
@@ -319,9 +317,11 @@ Impossible Love & 0 & 55 & 23  & 17 & 4  & 3 \\ \hline
 \label{tab:survey}
 \end{table} 
 
-As we may notice, Ophelia was preferred from the first pair of paintings over the Kiss, while Impossible love was the preferred one from the second pair of paintings.  We can compare these results with those shown in table \ref{tab:readings}:  Ophelia and Impossible love were both the works displaying higher values of happiness and engagement for each of the pairs shown.  
+As we may notice, Ophelia was preferred from the first pair of paintings over the Kiss, while Impossible love was the preferred one from the second pair of paintings.  We can compare these results with those shown in table \ref{tab:readings}:  Ophelia and Impossible love were both the works displaying higher values of happiness and engagement for each of the pairs shown.
 
-We can thus conclude, that the results show that sensor-based non-intrusive methods allows to capture useful information when analyzing audience perception:  the audience is not disturbed, the amount of data increases significantly, and data obtained allows to understand audience perception.
+But we can also compare this results with artists preferences when developing the evolutionary art work, which allows us to analyse wheather best valued art works are the same for the audience and the artists.  If we check \textit{elitism} information for both experiments XY (Ophelia and Birth of Venus) and XYZ (The Kiss and Impossible Love), we see that Ophelia was second most selected works for XY \cite{arteevolutivo}, while Impossible Love was also second most selected one by artists in XYZ experiment \cite{moreno2016analysing}.  Although there was no exact coincidence in the most valued work of art, in both cases the chosen works were in the group of the most selected.  Thus we can conclude that although not a perfect coincidence in the preferred work, there is a correlation between artist's preferences and audience ones.  To the best of our knowledge, this is the first time such an information is automatically captured from audience when evolutionary art is displayed.
+
+Although still preliminary, we can thus conclude, that the results show that sensor-based non-intrusive methods allows to capture useful information when analyzing audience perception:  the audience is not disturbed, the amount of data increases significantly, and data obtained allows to understand and confront audience perception with artists creativity.  Future and more extensive experiments be useful to confirm the appropriateness of the approach presented.
 
 \section{Conclusions}
 %\input{Conclusions}
@@ -330,11 +330,13 @@ This paper describes a new non-intrusive approach to the analysis of audience pe
 
 Althouhg survey-based methods were used in previous works to extract useful information from the audience, a detailed analysis of the participation rates described in this paper allows us to see that the audience generally rejects surveys, and simply prefers to enjoy the art exhibits.  A very low paticipation rate (50 over 1000) documented made us consider alternatives.
 
-Thus a new sensor based alternative has been developed that allows to capture audience perception avoiding public nuisance with polls.  
+Thus a new sensor based methodology has been developed that allow us to capture audience perception avoiding public nuisance with polls. 
 
-A couple of experiments has allowed us to capture several thousand interaction data, with useful information about the interest, engagement and feelings.  Moreover, data has been confronted with another survey based experiment, and the correlation between sensor based information and answer provided by users is direct.
+A couple of experiments has been employed to capture several thousand interaction data, with useful information about the interest, engagement and feelings.  Moreover, data has been confronted with another survey based experiment, and the correlation between sensor based information and answer provided by users is direct. 
 
-Therfore, we believe that these encouraging results allows us to see the interest of the approach, and will allow to design new art exhibitions that provide a massive capture and analysis of the public's reaction.
+Finally, data extracted has been confronted with artists way of working in the evolutionary context, and has provide useful information to see a relationship between elitism operations and audienced preferred works.
+
+We believe that these encouraging results allows us to see the interest of the approach, and will allow to design new art exhibitions that provide a massive capture and analysis of the public's reaction.
 
 \section*{Acknowledgements}
 \sloppypar  The authors would like to thank Spanish Ministry of Economy,
