@@ -36,7 +36,31 @@
 
 %----------------------------------------------------------------------------------------
 
+% In general, papers should be organized this way. First, general
+% framework and problem you want to solve, with the motivation. Second
+% the technique you are using to solve it. Finally, conclusions and
+% generalization from the problem solution. I would put it this way
 
+% Museum design is an optimization problem that aims to make the
+% museum as attractive as possible, at the same time people with
+% different interests make the visit comfortably; having a data-based
+% approach to organizing exhibitions, producing new works out of
+% storage or buying new ones makes it also an interesting
+% problem. However, this problem has not been solved numerically so
+% far, and there is very little data available to point at
+% solutions. An evolutionary art exhibit created by us is an
+% interesting testbed, because works of arts are organized in
+% "generations", every one of them related to others in the previous
+% generation, so inspiration paths are explicit and well known in
+% advance. Besides, all works in the exhibition are related. In this
+% paper, using this evolutionary art exhibit, we 
+% present an off-the shelf system that is able to measure the time
+% people spend on every one of the pictures. Analyzing data obtained
+% shows that, in general, visitors follow a particular "inspiration"
+% track, which, besides indicating that visit time is not random, can
+% give a hint to museum designers to create exhibitions clustering
+% works that are related to each other by inspiration, rather by
+% temporal or other considerations - JJ
 
 \maketitle % Insert title
 
@@ -106,11 +130,58 @@ mutation, evaluation, etc, while computers are in charge of more
 administrative tasks:  storing and managing populations
 \cite{de2014unplugging}. 
   
-Since its proposal, UEAs have been successfully applied to generate collective art works that have gained public attention:  the latest experiment has produced a collective art work that has been selected as one of the winners at the international \textit{Show Your World 2017} art competition \footnote{http://www.reartiste.com/juried-exhibition-show-your-world-2017/}.  But before that, other art works produced by means of the UEA were successfully shown to the public in different cities around the world: Cancun, Amsterdam, Madrid, Vancouver, etc, being one of them awarded with the ACM Gecco evolutionary art design and creativity award in 2013 \cite{loiacono2014gecco}.
+Since its proposal, UEAs have been successfully applied to generate
+collective art works % maybe exhibitions instead of art works. Is
+                     % every single artwork collective? In what sense?
+                     % - JJ
+that have gained public attention:  the latest experiment has produced
+a collective art work that has been selected as one of the winners at
+the international \textit{Show Your World 2017} art competition
+\footnote{http://www.reartiste.com/juried-exhibition-show-your-world-2017/}.
+But before that, other art works produced by means of the UEA were
+successfully shown to the public in different cities around the world:
+Cancún, Amsterdam, Madrid, Vancouver, etc, being one of them awarded
+with the ACM Gecco evolutionary art design and creativity award in
+2013 \cite{loiacono2014gecco}. 
 
-Results obtained encouraged us to continue analyzing other components of the algorithm, but we also understood that not only artists but also the audience should be included in the loop, to check whether the evolutionary approach and operations artists apply are coherently interpreted by the audience.  Although an initial experiment was performed involving the audience, using a series of questions to be answered, we quickly understood, as described below, that new non-intrusive approaches would be needed to properly evaluate audience experience without disturbing their participation on art exhibits.  Actually, previously applied surveys typically produced fatigue in the audience, when a large number of questions must be answered by carefully examining the art works shown.  New alternatives are required that allows to obtain information from the audience, avoiding fatigue and allowing them to more effectively enjoy the experience.
+% You start to mention "the algorithm" here and "the loop" without
+% doing any mention of it before. It should be explained, as well as
+% the motivation for including the audience in that loop - JJ
+Results obtained encouraged us to continue analyzing other components
+of the algorithm, but we also understood that not only artists but
+also the audience should be included in the loop, to check whether the
+evolutionary approach and operations artists apply are coherently
+interpreted by the audience.  Although an initial experiment was
+% That's what every work of art aims for, being interpreted coherently
+% - not. Why is this a motivation? - JJ
+performed involving the audience, using a series of questions to be
+answered, we quickly understood, as described below, that new
+non-intrusive approaches would be needed to properly evaluate audience
+experience without disturbing their participation on art exhibits.
+Actually, previously applied surveys typically produced fatigue in the
+audience, when a large number of questions must be answered by
+carefully examining the art works shown.  New alternatives are
+required that allows to obtain information from the audience, avoiding
+fatigue and allowing them to more effectively enjoy the experience. 
 
-This paper presents a proposal for attaining such a goal:  being able to extract information from the audience while they are simply looking at the artworks in the exhibit.  By using off-the-shelf human-computer interaction devices we are able to extract useful information.  Not only that, the first experiments show how a correlation may be found between the data extracted from the audience and some of the genetic operations applied by artists.  The methodology thus provides a better understanding of audience perception, and relevant information that may allow in the future to improve the UEA.  In addition, the data extracted allows a first comparison between audience perception and artists' operations, which is helpful for improving the understanding of creativity.
+This paper presents a proposal for attaining such a goal:  being able
+to extract information from the audience while they are simply looking
+at the artworks in the exhibit.  By using off-the-shelf human-computer
+interaction devices we are able to extract useful information. % about what?
+Not
+only that, the first experiments show how a correlation may be found
+between the data extracted from the audience and some of the genetic
+operations applied by artists.  The methodology thus provides a better
+% The artists are inspired by previous works, yours and others. This
+% inspiration is also present in any other artists. Is the objective
+% of the paper to show that people are interested in works of arts
+% that are inspired by each other, disregarding others? We should aim
+% for a very general problem - JJ
+understanding of audience perception, and relevant information that
+may allow in the future to improve the UEA.  In addition, the data
+extracted allows a first comparison between audience perception and
+artists' operations, which is helpful for improving the understanding
+of creativity. 
 
 The rest of the paper is organized as follows: Section \ref{loop} presents the literature review. Section \ref{interaction} proposes the methodology aimed at analyzing public reaction. Section \ref{experiments} describes the experiments performed while section \ref{results} presents results.  Finally, we draw our conclusions in Section 5. % Cambiar después por ref
 
